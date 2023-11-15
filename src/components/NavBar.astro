@@ -1,0 +1,54 @@
+---
+interface Props{
+    page: string;
+}
+
+const {page} = Astro.props;
+---
+
+<nav>
+    <img src="../../public/favicon.svg">
+    <a href="/">Home</a>
+    <a href="/">Events</a>
+    <a href="/">Projects</a>
+    <a href="/">About Us</a>
+    <button>Join Chapter</button>
+</nav>
+
+<style>
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,.1);
+    }
+    nav img{
+        width: 2rem;
+    }
+    nav a{
+        text-decoration: none;
+        color: #000;
+        font-weight: 500;
+        margin: 0 1rem;
+    }
+    nav button{
+        padding: .5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        background-color: #000;
+        color: #fff;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    nav button:hover{
+        background-color: #333;
+    }
+    nav a:hover{
+        color: #333;
+    }
+    nav a:nth-child({{page}}){
+        color: #333;
+    }
+</style>
