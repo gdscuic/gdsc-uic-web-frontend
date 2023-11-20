@@ -1,0 +1,44 @@
+---
+interface Props {
+	variant: string;
+	color: string;
+    text: string;
+    link: string;
+}
+
+const { variant, color, text, link} = Astro.props;
+---
+
+<button class = {variant}> {text}</button>
+
+<style define:vars={{ color }}>
+    button {
+        padding: 15px 30px;
+        background-position: 100%;
+        border-radius: 40px;
+        font-size: 35px;
+        text-align: center;
+        font-weight: bold;
+        border-color: var(--color);
+        font-family: "Roboto";
+        cursor: pointer;
+    }
+    .filled {
+        color: white;
+        background-color: var(--color);
+    }
+    .outlined {
+        border-width: thick;
+        color: var(--color);
+        background-color: white;
+    }
+    .disabled {
+        border-width: thick;
+        color: var(--color);
+        background-color: white;
+        pointer-events: none;
+        opacity: 0.3;
+    }
+
+</style>
+
