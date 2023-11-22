@@ -1,9 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import AboutCard from '../components/AboutCard.astro';
+import Card from '../components/Card.astro';
+import '../styles/global.css';
+import FrontPageHeader from '../components/FrontPageHeader.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Welcome to Astro">
 	<main>
 		<svg
 			class="astro-a"
@@ -38,6 +41,7 @@ import AboutCard from '../components/AboutCard.astro';
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
 		</p>
+		<FrontPageHeader />
 		<ul role="list" class="link-card-grid">
 			<AboutCard name="Angel" email="me@you.net" title="GDSC Lead | President" />
 		</ul>
