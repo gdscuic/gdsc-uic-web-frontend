@@ -1,73 +1,21 @@
 ---
 interface Props {
+	name: string;
+	email: string;
 	title: string;
-	body: string;
-	href: string;
 }
 
-const { href, title, body } = Astro.props;
+const { name, email, title } = Astro.props;
 ---
-
-<li class="link-card">
-	<a href={href}>
-		<h2 class="headAb">
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p class="info">
-			{body}
-		</p>
-	</a>
-</li>
-<style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 1px;
-		background-color: #23262d;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 7px;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-	}
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: calc(1.5rem - 1px);
-		border-radius: 8px;
-		color: white;
-		background-color: #23262d;
-		opacity: 0.8;
-	}
-	.headAb {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	.info {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
-	}
-</style>
 
 <div class="card">
     <div class="card-header">
-        <img src="about_pic.jpg" alt="Profile Image" class="profile-img">
+        <img src="img/profile-image-placeholder.jpg" alt="Profile Image" class="profile-img">
     </div>
     <div class="card-body">
-        <p class="name">Your Name</p>
-        <a href="#" class="mail">yourname@amail.com</a>
-        <p class="job">Developer | Designer</p>
+        <p class="name">{name}</p>
+        <a href="#" class="mail">{email}</a>
+        <p class="job">{title}</p>
     </div>
 
     <div class="social-links">
@@ -83,6 +31,11 @@ const { href, title, body } = Astro.props;
 </div>
 
 <style>
+  :root {
+    --red: #FF0000;
+    --white: #ffffff;
+  }
+
 	.card {
 		max-width: 250px;
 		margin: 150px auto 0;
@@ -97,7 +50,6 @@ const { href, title, body } = Astro.props;
 		position: relative;
 		height: 48px;
 	}
-
 	.card .card-header .profile-img {
 		width: 130px;
 		height: 130px;
@@ -109,12 +61,7 @@ const { href, title, body } = Astro.props;
 		box-shadow: 0 0 20px #00000033;
 	}
 
-	.card .card-header .profile-img:hover {
-		width: 180px;
-		height: 180px;
-		border: 8px solid #d885af;
-	}
-
+	
 	.card .card-body {
 		padding: 10px 40px;
 	}
@@ -126,11 +73,7 @@ const { href, title, body } = Astro.props;
 		color: #c74385;
 	}
 
-	.card .card-body .name:hover {
-		margin-top: 30px;
-		font-size: 24px;
-		color: #d885af;
-	}
+
 
 	.card .card-body .mail {
 		font-size: 14px;
@@ -146,7 +89,6 @@ const { href, title, body } = Astro.props;
 		margin-top: 10px;
 		font-size: 14px;
 	}
-
 	.card .social-links {
 		display: flex;
 		justify-content: center;
@@ -178,7 +120,6 @@ const { href, title, body } = Astro.props;
 		width: 50px;
 		text-decoration: none;
 	}
-
 	.card .card-footer {
 		background-color: #c74385;
 		border-bottom-left-radius: 15px;
@@ -189,7 +130,6 @@ const { href, title, body } = Astro.props;
 	.card .card-footer .count {
 		font-size: 14px;
 	}
-	
 	@media screen and (max-width: 575px) {
 		.card {
 			width: 96%;
