@@ -9,34 +9,32 @@ interface Props {
 const { variant, color, text, link} = Astro.props;
 ---
 
-<astro-greet data-message={link}>
-    <button class = {variant} > {text}</button>
-</astro-greet>
-
+<a class = {variant} href = {link}> {text}</a>
 
 <style define:vars={{ color }}>
-    button {
+    a {
         padding: 15px 30px;
         background-position: 100%;
-        border-radius: 40px;
+        border-radius: 60px;
         font-size: 35px;
         text-align: center;
         font-weight: bold;
         border-color: var(--color);
         font-family: "Roboto";
-        cursor: pointer;
+        text-decoration: none;
+        border: 10px;
+        border-style: solid;
     }
     .filled {
         color: white;
+        border-color: var(--color);
         background-color: var(--color);
     }
     .outlined {
-        border-width: thick;
         color: var(--color);
         background-color: white;
     }
     .disabled {
-        border-width: thick;
         color: var(--color);
         background-color: white;
         pointer-events: none;
@@ -45,19 +43,3 @@ const { variant, color, text, link} = Astro.props;
 
 </style>
 
-<script>
-    class AstroGreet extends HTMLElement {
-    constructor() {
-      super();
-
-      const link = this.dataset.message || '';
-      const button = this.querySelector('button');
-      if(button != null) {
-        button.addEventListener('click', () => {
-        window.location.href = link;
-      });
-      }
-    }
-    }
-    customElements.define('astro-greet', AstroGreet);
-</script>
