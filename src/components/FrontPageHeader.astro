@@ -1,0 +1,51 @@
+<header>
+    <!-- Updated header content with different colors and sizes -->
+    <h1><span style="font-size: 50px;">Build</span> for <span style="color: red;">Students</span></h1>
+</header>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+    }
+    header {
+        padding: 10px;
+        text-align: center;
+        width: 200px; /* Set the width of the header as needed */
+        transition: color 0.5s ease; /* Add transition for smooth color change */
+        margin-top: 200px;
+    }
+    /* Updated styles for the header text */
+    header h1 {
+        font-size: 24px; /* Increase the text size */
+        color: black; /* Set the color of the text "Build" to black */
+    }
+    /* Updated styles for the "for Students" part */
+        header h1 span {
+            color: red; /* Set the color of the text "for Students" to red */
+            font-size: 50px;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+    </style>
+
+<script>
+    // JavaScript to periodically change header text color
+    document.addEventListener("DOMContentLoaded", function() {
+        var header = document.querySelector('header') as HTMLElement;
+        var colors = ['#333', '#007bff', '#28a745']; // Add more colors if needed
+
+        function changeColor() {
+            var randomColor = colors[Math.floor(Math.random() * colors.length)];
+            header.style.color = randomColor;
+        }
+
+        // Change color every 3 seconds (adjust the time interval as needed)
+        setInterval(changeColor, 3000);
+    });
+</script>
