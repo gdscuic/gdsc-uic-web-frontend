@@ -1,0 +1,76 @@
+---
+interface Props{
+    page: string;
+}
+
+const {page} = Astro.props;
+---
+
+<nav>
+    <img src="../../public/images/gdsc-logo_resize.png" alt="GDSC Logo">
+    <div class="nav-links">
+        <a href="/" class={page === "Home" ? "active" : ""}>Home</a>
+        <a href="/" class={page === "Events" ? "active" : ""}>Events</a>
+        <a href="/" class={page === "Projects" ? "active" : ""}>Projects</a>
+        <a href="/" class={page === "About Us" ? "active" : ""}>About Us</a>
+        <!-- Change this when button for sign up is made -->
+        <button>Join Chapter</button>
+    </div>    
+</nav>
+
+<style>
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        height: 4rem;
+        background-color: transparent;
+        font-size: 1.1rem;
+        font-family: sans-serif
+    }
+    nav img{
+        width: 3.75rem;
+    }
+    .nav-links {
+        display: flex;
+        gap: 6%;
+        justify-content: flex-end;
+        width: 85%;
+    }
+    nav a, nav button {
+        box-sizing: border-box;
+        text-decoration: none;
+        color: #000;
+        font-weight: 700;
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center  
+    }
+    nav a.active{
+        font-weight: 700;
+        color: #0F9D58;
+    }
+    nav button{
+        border: 0.15rem solid #4285F4;
+        background-color: #4285F4;
+        color: #fff;
+        font-weight: 700;
+
+    }
+    nav button:hover{
+        border: 0.15rem solid #4285F4;
+        background-color: transparent;
+        color: #4285F4;
+    }
+    nav button:active{
+        border: 0.15rem solid rgba(66, 133, 244, 0.5);
+        background-color: transparent;
+        color: rgba(66, 133, 244, 0.5);
+    }
+    nav a:hover{
+        text-decoration: underline;
+    }
+</style>
