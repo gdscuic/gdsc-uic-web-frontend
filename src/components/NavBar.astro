@@ -1,18 +1,16 @@
 ---
 interface Props{
-    page: string;
+    // Empty for now
 }
-
-const {page} = Astro.props;
 ---
 
 <nav>
     <img src="../../public/images/gdsc-logo_resize.png" alt="GDSC Logo">
     <div class="nav-links">
-        <a href="/" class={page === "Home" ? "active" : ""}>Home</a>
-        <a href="/" class={page === "Events" ? "active" : ""}>Events</a>
-        <a href="/" class={page === "Projects" ? "active" : ""}>Projects</a>
-        <a href="/" class={page === "About Us" ? "active" : ""}>About Us</a>
+        <a href="/" class={Astro.url.pathname.endsWith("home") ? "active" : ""}>Home</a>
+        <a href="/" class={Astro.url.pathname.endsWith("events") ? "active" : ""}>Events</a>
+        <a href="/" class={Astro.url.pathname.endsWith("projects") ? "active" : ""}>Projects</a>
+        <a href="/" class={Astro.url.pathname.endsWith("about-us") ? "active" : ""}>About Us</a>
         <!-- Change this when button for sign up is made -->
         <button>Join Chapter</button>
     </div>    
