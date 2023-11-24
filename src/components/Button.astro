@@ -1,0 +1,45 @@
+---
+interface Props {
+	variant: string;
+	color: string;
+    text: string;
+    link: string;
+}
+
+const { variant, color, text, link} = Astro.props;
+---
+
+<a class = {variant} href = {link}> {text}</a>
+
+<style define:vars={{ color }}>
+    a {
+        padding: 15px 30px;
+        background-position: 100%;
+        border-radius: 60px;
+        font-size: 35px;
+        text-align: center;
+        font-weight: bold;
+        border-color: var(--color);
+        font-family: "Roboto";
+        text-decoration: none;
+        border: 10px;
+        border-style: solid;
+    }
+    .filled {
+        color: white;
+        border-color: var(--color);
+        background-color: var(--color);
+    }
+    .outlined {
+        color: var(--color);
+        background-color: white;
+    }
+    .disabled {
+        color: var(--color);
+        background-color: white;
+        pointer-events: none;
+        opacity: 0.3;
+    }
+
+</style>
+
