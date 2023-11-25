@@ -1,45 +1,144 @@
-body {
-    font-family: 'Arial','Helvetica',sans-serif;
-    margin: 0;
-    padding: 0;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
 }
 
-/* // heading 2  */
+/* global variables */
+/* https://hihayk.github.io/shaper/#system-ui,%20sans-serif/1.34/0.93/2.37/0.8/1.53/0.5/217/89/61/24/0.4/2/true */
+
+:root {
+  /* typography */
+  --baseTextSize: 0.93rem;
+  --textSizeIncrement: 1.34;
+
+  --text-xs: calc(var(--baseTextSize) / var(--textSizeIncrement));
+  --text-s: var(--baseTextSize);
+  --text-m: calc(var(--text-s) * var(--textSizeIncrement));
+  --text-l: calc(var(--text-m) * var(--textSizeIncrement));
+  --text-xl: calc(var(--text-l) * var(--textSizeIncrement));
+
+  --lineHeightFixedAmount: 0.35rem;
+  --lineHeightRelativeAmount: 1.1em;
+  --globalLineHeight: calc(var(--lineHeightFixedAmount) + var(--lineHeightRelativeAmount));
+
+  /* spacing */
+  --unit: 0.5rem;
+  --spaceIncrement: 1.53;
+
+  --space-s: var(--unit);
+  --space-m: calc(var(--space-s) * var(--spaceIncrement));
+  --space-l: calc(var(--space-m) * var(--spaceIncrement));
+  --space-xl: calc(var(--space-l) * var(--spaceIncrement));
+  --space-2xl: calc(var(--space-xl) * var(--spaceIncrement));
+  --space-3xl: calc(var(--space-2xl) * var(--spaceIncrement));
+  --space-4xl: calc(var(--space-3xl) * var(--spaceIncrement));
+
+  /* text framing (buttons, fields, etc) */
+  --textFrameRatio: 2.37;
+  --textFrameY: 0.8em;
+  --textFrameX: calc(var(--textFrameY) * var(--textFrameRatio));
+
+  /* colors (various calculations) */
+  --accentH: 217;
+  --accentS: 89%;
+  --accentL: 61%;
+
+  --greyH: var(--accentH);
+  --greyS: 24%;
+  --initialGreyLightness: 93%;
+  --greyscaleLightnessIncrement: 11.3%;
+
+  --grey1L: var(--initialGreyLightness);
+  --grey2L: calc(var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 1);
+  --grey3L: calc(var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 2);
+  --grey4L: calc(var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 3);
+  --grey5L: calc(var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 4);
+  --grey6L: calc(var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 5);
+  --grey7L: calc(var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 6);
+  --grey8L: calc(var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 7);
+
+  /* actual colors */
+  --c-accent: hsl(var(--accentH), var(--accentS), var(--accentL));
+  --c-accentContrasted: hsl(var(--accentH), var(--accentS), 95%);
+
+  --c-red: #ea4335;
+  --c-green: #34a853;
+  --c-yellow: #fbbc04;
+
+  --c-grey1: hsl(var(--greyH), var(--greyS), var(--grey1L));
+  --c-grey2: hsl(var(--greyH), var(--greyS), var(--grey2L));
+  --c-grey3: hsl(var(--greyH), var(--greyS), var(--grey3L));
+  --c-grey4: hsl(var(--greyH), var(--greyS), var(--grey4L));
+  --c-grey5: hsl(var(--greyH), var(--greyS), var(--grey5L));
+  --c-grey6: hsl(var(--greyH), var(--greyS), var(--grey6L));
+  --c-grey7: hsl(var(--greyH), var(--greyS), var(--grey7L));
+  --c-grey8: hsl(var(--greyH), var(--greyS), var(--grey8L));
+
+  --c-border: hsla(var(--greyH), var(--greyS), var(--grey8L), 0.1);
+  --c-overlay: hsla(var(--greyH), var(--greyS), var(--grey8L), 0.07);
+  --c-background: white;
+  --c-body: var(--c-grey8);
+  --c-bodyDimmed: hsla(var(--greyH), var(--greyS), var(--grey8L), 0.5);
+  --c-fieldBorder: var(--c-grey2);
+  --c-buttonBg: var(--c-grey2);
+
+  /* misc */
+  --radius: 0.4rem;
+  --fieldBorderWidth: 2px;
+}
+
+html,
+body {
+  font-family: "Arial", "Helvetica", sans-serif;
+  margin: 0;
+  padding: 0;
+
+  font-size: var(--text-m);
+  line-height: var(--globalLineHeight);
+  color: var(--c-text-color);
+  background-color: var(--c-main-background);
+}
+
+a {
+  color: var(--c-primary);
+}
+
+/* heading 1  */
 
 h1 {
-    font-size: 2.5em;
-    margin-bottom: 0.5em;
-    font-weight: bold;
-    text-transform: capitalize;
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
-/* // heading 2  */
+/* heading 2  */
 
 h2 {
-    font-size: 2em;
-    margin-bottom: 0.5em;
-    font-weight: bold;
-    text-transform: capitalize;
-  }
-  
-/* // heading 3  */
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  text-transform: capitalize;
+}
 
-  h3 {
-    font-size: 1.5em;
-    margin-bottom: 0.5em;
-  }
+/* heading 3  */
 
-/* // normal text  */
+h3 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
 
-  p {
-    margin-bottom: 1em;
-    text-align: justify;
-  }
+/* normal text  */
 
-/* // caption */  
+p {
+  margin-bottom: 1em;
+  text-align: justify;
+}
 
-  .caption {
-    font-size: 0.8em;
-    color: #ffffff;
-  }
+/* caption */
 
+.caption {
+  font-size: 0.8em;
+  color: #ffffff;
+}
