@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import AboutCard from '../components/AboutCard.astro';
-import Card from '../components/Card.astro';
 import Button from '../components/Button.astro';
 import '../styles/global.css';
 import FrontPageHeader from '../components/FrontPageHeader.astro';
@@ -13,9 +12,18 @@ import NavBar from '../components/NavBar.astro';
 	<main>
 		<FrontPageHeader />
 
-		<Button text="Test Button" link="https://google.com" variant="filled" color="var(--c-red)" />
-		<Button text="Test Button" link="https://google.com" variant="outlined" color="var(--c-red)" />
-		<Button text="Test Button" link="https://google.com" variant="disabled" color="var(--c-red)" />
+		<p>blue buttons</p>
+		<p>
+			<Button text="Test Button" link="https://google.com" />
+		<Button text="Test Button" link="https://google.com" variant="outlined" />
+		<Button text="Test Button" link="https://google.com" variant="disabled" />
+		</p>
+		<p>red buttons</p>
+		<p>
+		<Button color="red" text="Test Button" link="https://google.com" />
+		<Button color="red" text="Test Button" link="https://google.com" variant="outlined" />
+		<Button color="red" text="Test Button" link="https://google.com" variant="disabled" />
+		</p>
 		
 		<p>// TODO customize this card a bit more</p>
 		<AboutCard name="Angel" email="me@you.net" title="GDSC Lead | President" />

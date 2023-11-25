@@ -86,6 +86,7 @@
   /* misc */
   --radius: 0.4rem;
   --fieldBorderWidth: 2px;
+  --borderSize: 0.3rem;
 }
 
 html,
