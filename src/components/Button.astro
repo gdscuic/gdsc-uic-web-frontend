@@ -1,0 +1,47 @@
+---
+// we're defining some properties our elements expect to have
+// props ending with ? are optional so VSCode won't complain if you leave it out
+interface Props {
+	variant?: "filled" | "outlined" | "disabled";
+	color?: "accent" | "red" | "green" | "yellow";
+    text: string;
+    link: string;
+}
+
+const { variant = "filled", color = "accent", text, link} = Astro.props;
+
+const varColorString = `var(--c-${color})`;
+---
+
+<a class={variant} href={link}>{text}</a>
+
+<style define:vars={{ varColorString }}>
+    a {
+        padding: var(--textFrameY) var(--textFrameX);
+        background-position: 100%;
+        border-radius: 60px;
+        text-align: center;
+        font-weight: bold;
+        border-color: var(--varColorString);
+        text-decoration: none;
+        border: var(--borderSize);
+        border-style: solid;
+    }
+    .filled {
+        color: white;
+        border-color: var(--varColorString);
+        background-color: var(--varColorString);
+    }
+    .outlined {
+        color: var(--varColorString);
+        background-color: var(--c-background);
+    }
+    .disabled {
+        color: var(--varColorString);
+        background-color: var(--c-background);
+        pointer-events: none;
+        opacity: 0.3;
+    }
+
+</style>
+
