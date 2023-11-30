@@ -11,7 +11,7 @@ console.log(Astro.url.pathname)
 <nav>
     <img src="../../public/images/gdsc-logo.png" alt="GDSC Logo">
     <div class="nav-links">
-        <a href="/" class={Astro.url.pathname.endsWith("home") ? "active" : ""}>Home</a>
+        <a href="/" class={Astro.url.pathname.endsWith("/") ? "active" : ""}>Home</a>
         <a href="/" class={Astro.url.pathname.endsWith("events") ? "active" : ""}>Events</a>
         <a href="/" class={Astro.url.pathname.endsWith("projects") ? "active" : ""}>Projects</a>
         <a href="/" class={Astro.url.pathname.endsWith("about-us") ? "active" : ""}>About Us</a> 
