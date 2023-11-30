@@ -1,22 +1,29 @@
 ---
+import Button from "../components/Button.astro";
+
 interface Props{
-    page: string;
+    // Empty for now
 }
 
-const {page} = Astro.props;
+console.log(Astro.url.pathname)
 ---
 
 <nav>
-    <img src="../../public/images/gdsc-logo_resize.png" alt="GDSC Logo">
+    <img src="../../public/images/gdsc-logo.png" alt="GDSC Logo">
     <div class="nav-links">
-        <a href="/" class={page === "Home" ? "active" : ""}>Home</a>
-        <a href="/" class={page === "Events" ? "active" : ""}>Events</a>
-        <a href="/" class={page === "Projects" ? "active" : ""}>Projects</a>
-        <a href="/" class={page === "About Us" ? "active" : ""}>About Us</a>
-        <!-- Change this when button for sign up is made -->
-        <button>Join Chapter</button>
-    </div>    
+        <a href="/" class={Astro.url.pathname.endsWith("/") ? "active" : ""}>Home</a>
+        <a href="/" class={Astro.url.pathname.endsWith("events") ? "active" : ""}>Events</a>
+        <a href="/" class={Astro.url.pathname.endsWith("projects") ? "active" : ""}>Projects</a>
+        <a href="/" class={Astro.url.pathname.endsWith("about-us") ? "active" : ""}>About Us</a> 
+    </div>
+    <div class="button">  
+        <Button text="Join Chapter" link="https://gdsc.community.dev/university-of-illinois-chicago/" variant="filled"/>
+    </div> 
 </nav>
+
+<script>
+    console.log(Astro.url.pathname)
+</script>
 
 <style>
     nav{
@@ -26,7 +33,6 @@ const {page} = Astro.props;
         padding: 0.5rem 1rem;
         height: 4rem;
         background-color: transparent;
-        font-size: 1.1rem;
         font-family: sans-serif
     }
     nav img{
@@ -36,9 +42,10 @@ const {page} = Astro.props;
         display: flex;
         gap: 6%;
         justify-content: flex-end;
-        width: 85%;
+        width: 70%;
+        font-size: 1.03rem;
     }
-    nav a, nav button {
+    nav a{
         box-sizing: border-box;
         text-decoration: none;
         color: #000;
@@ -47,30 +54,18 @@ const {page} = Astro.props;
         border-radius: 10px;
         cursor: pointer;
         display: flex;
-        align-items: center  
+        align-items: center;
     }
     nav a.active{
         font-weight: 700;
-        color: #0F9D58;
-    }
-    nav button{
-        border: 0.15rem solid #4285F4;
-        background-color: #4285F4;
-        color: #fff;
-        font-weight: 700;
-
-    }
-    nav button:hover{
-        border: 0.15rem solid #4285F4;
-        background-color: transparent;
-        color: #4285F4;
-    }
-    nav button:active{
-        border: 0.15rem solid rgba(66, 133, 244, 0.5);
-        background-color: transparent;
-        color: rgba(66, 133, 244, 0.5);
+        color: var(--c-green);
     }
     nav a:hover{
         text-decoration: underline;
+    }
+    .button{
+        all: unset;
+        width: 10rem;
+        font-size: 0.93rem;
     }
 </style>
